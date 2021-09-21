@@ -53,13 +53,12 @@ app.drawCard = (jsonResponse) => {
   drawButton.addEventListener('click', () => {
     app.displayCards(jsonResponse);
   });
-  
 }
      
 // function to get img data and display to page
 app.displayCards = (jsonResponse) => {
   const newCard = jsonResponse.cards;
-  console.log(newCard);
+  // console.log(newCard);
   const ulElement = document.createElement('ul');
   
   ulElement.innerHTML = `
@@ -78,23 +77,40 @@ app.displayCards = (jsonResponse) => {
   };
 
   app.compareCards = (newCard) => {
-    const ACE = 1;
-    const jack = 11;
-    const queen = 12;
-    const king = 13;
 
-    // newCard[i].value = "KING"
-    //   let king = 13
-    IF (newCard[0].value == "")
+    const cardValueArray = newCard.map((card) => {
+      let cardValue = parseInt(card.value);
+  
 
-    let playerCardValue = parseInt(newCard[0].value);
+      if (card.value === "KING"){
+        cardValue = 13;
+      }else if(card.value === "QUEEN"){
+        cardValue = 12;
+      }else if(card.value === "JACK"){
+        cardValue = 11;
+      }else if(card.value === "ACE"){
+        cardValue = 1;
+      }else{cardValue = card.value}
+      
+      return cardValue;
+      
+      // console.log(cardValue)
+    });
+
+    console.log(cardValueArray);
+
+    let playerCardValue = cardValueArray[0];
+    let dealerCardValue = cardValueArray[1];
+
+    if(playerCardValue > dealerCardValue) {
+      console.log('plsyer wins');
+    } else if (playerCardValue < dealerCardValue) {
+      console.log("dealer wins");
+    } else {
+      console.log('it is a tie');
+    }
 
     
-    let dealerCardValue = parseInt(newCard[1].value);
-    // let cardValue = parseInt(playerCard.value);
-
-    console.log(playerCardValue)
-  //  if(playerCard.parseInt(value))
 
   }
 
