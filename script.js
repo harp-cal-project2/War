@@ -30,7 +30,7 @@ app.apiUrl = `https://deckofcardsapi.com/api/deck/new`;
 
 app.init = () => {
   app.startGame();
-  app.getDeck();
+  
 }
 
 // method to make fetch request to api
@@ -43,15 +43,16 @@ app.getDeck = () => {
     return response.json();
   })
   .then((jsonResponse) => {
-    app.drawCard(jsonResponse);
+    app.displayCards(jsonResponse);
   }); 
 }
 
 // function to listen for clicks on deck button
-app.drawCard = (jsonResponse) => {
+app.drawCard = () => {
   const drawButton = document.querySelector('.drawCards');
   drawButton.addEventListener('click', () => {
-    app.displayCards(jsonResponse);
+  app.getDeck();
+    
   });
 }
      
@@ -59,8 +60,12 @@ app.drawCard = (jsonResponse) => {
 app.displayCards = (jsonResponse) => {
   const newCard = jsonResponse.cards;
   // console.log(newCard);
+
+  const cardSection = document.querySelector('.displayCards');
+
+  cardSection.innerHTML= "";
   const ulElement = document.createElement('ul');
-  
+
   ulElement.innerHTML = `
     <li>
       <img src='${newCard[0].image}' alt='${newCard[0].value} of ${newCard[0].suit}'/>
@@ -70,7 +75,7 @@ app.displayCards = (jsonResponse) => {
     <li>
   `;
 
-  const cardSection = document.querySelector('.displayCards');
+  
   cardSection.append(ulElement);
   app.compareCards(newCard);
   //  console.log(newCard[0].image);
@@ -102,20 +107,17 @@ app.displayCards = (jsonResponse) => {
     let playerCardValue = cardValueArray[0];
     let dealerCardValue = cardValueArray[1];
 
+    const message = document.querySelector('h2');
+
     if(playerCardValue > dealerCardValue) {
-      console.log('plsyer wins');
+      message.textContent = "You win!"
     } else if (playerCardValue < dealerCardValue) {
-      console.log("dealer wins");
+      message.textContent = "Dealer wins!"
     } else {
-      console.log('it is a tie');
+      message.textContent = "It's a tie."
     }
-
-    
-
   }
-
-
-  
+ 
 // method to start game when button is clicked
   // display card decks on page
 app.startGame = () => {
@@ -124,7 +126,9 @@ app.startGame = () => {
     const deckContainer = document.querySelector('.startingPoint');
     deckContainer.classList.remove('startingPoint');
     deckContainer.classList.add('deckContainer');
+   
   });
+  app.drawCard();
 }
 
 
