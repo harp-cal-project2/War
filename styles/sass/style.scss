@@ -10,7 +10,13 @@ body {
   color: white;
   height: 100vh;
   text-align: center;
-  
+  position: relative; 
+  // min-height: 100%;
+
+}
+
+main {
+  // height: 90vh;
 }
 
 img {
@@ -18,15 +24,19 @@ img {
 }
 
 
-.deckContainer{
+.deckContainer {
   display: flex;
   justify-content: space-around;
   height: 50vh;
   align-items: center ;
 }
 
-.startingPoint{
+.startingPoint {
   display: none;
+}
+
+.startButton {
+  padding-top: 15%;
 }
 
 .deck {
@@ -38,9 +48,27 @@ img {
     }
 }
 
-button {
+.drawCards {
   border: none;
   margin: 0;
   padding: 0;
 }
 
+footer {
+  position: absolute;
+  bottom: 20px;
+  text-align: center;
+  width: 100%;
+
+
+    a {
+      text-decoration: none;
+      color: white;
+      
+        &:hover,
+        &:focus {
+          text-decoration: underline;
+        }
+    }
+
+}
