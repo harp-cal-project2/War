@@ -245,6 +245,7 @@ body {
   color: white;
   height: 100vh;
   text-align: center;
+  position: relative;
   font-family: "Roboto", sans-serif;
   font-size: 125%;
 }
@@ -275,6 +276,10 @@ img {
   display: none;
 }
 
+.startButton {
+  padding-top: 15%;
+}
+
 .deck {
   width: 200px;
   height: 400px;
@@ -283,8 +288,22 @@ img {
   border-radius: 10px;
 }
 
-button {
+.drawCards {
   border: none;
   margin: 0;
   padding: 0;
+}
+
+footer {
+  position: absolute;
+  bottom: 20px;
+  text-align: center;
+  width: 100%;
+}
+footer a {
+  text-decoration: none;
+  color: white;
+}
+footer a:hover, footer a:focus {
+  text-decoration: underline;
 }
