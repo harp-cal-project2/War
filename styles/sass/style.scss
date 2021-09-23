@@ -13,14 +13,9 @@ body {
   
 }
 
-// ul {
-//   height: 100%;
-// }
-
-
-// img {
-//   width: 100%;
-// }
+img {
+  width: 100%;
+}
 
 
 .deckContainer{
@@ -33,3 +28,19 @@ body {
 .startingPoint{
   display: none;
 }
+
+.deck {
+  width: 200px;
+  height: 400px;
+
+    img {
+      border-radius: 10px;
+    }
+}
+
+button {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
