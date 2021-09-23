@@ -246,6 +246,10 @@ body {
   text-align: center;
 }
 
+img {
+  width: 100%;
+}
+
 .deckContainer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -260,4 +264,18 @@ body {
 
 .startingPoint {
   display: none;
+}
+
+.deck {
+  width: 200px;
+  height: 400px;
+}
+.deck img {
+  border-radius: 10px;
+}
+
+button {
+  border: none;
+  margin: 0;
+  padding: 0;
 }
