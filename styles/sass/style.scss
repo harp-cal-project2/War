@@ -1,4 +1,6 @@
 @import 'setup';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;1,700&display=swap');
+
 
 html {
   font-size: 125%;
@@ -11,8 +13,14 @@ body {
   height: 100vh;
   text-align: center;
   position: relative; 
-  // min-height: 100%;
+  font-family: 'Roboto', sans-serif; 
+  font-size: 125%; 
+}
 
+h1{
+   font-family: 'Roboto', sans-serif;
+   font-size: 5rem;
+   font-weight: bold;
 }
 
 img {
