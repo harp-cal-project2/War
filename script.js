@@ -111,7 +111,7 @@ app.startGame = () => {
     const deckContainer = document.querySelector('.startingPoint');
     deckContainer.classList.remove('startingPoint');
     deckContainer.classList.add('deckContainer');
-    startGameButton.style.visibility = "hidden";
+    startGameButton.style.display = "none";
   });
   app.drawCard();
 }
