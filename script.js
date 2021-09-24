@@ -59,7 +59,7 @@ app.drawCard = () => {
 app.displayCards = (jsonResponse) => {
   const newCard = jsonResponse.cards;
   const cardSection = document.querySelector('.displayCards');
-  cardSection.innerHTML= "";
+  cardSection.innerHTML= " ";
   const ulElement = document.createElement('ul');
   ulElement.innerHTML = `
     <li>
@@ -71,12 +71,12 @@ app.displayCards = (jsonResponse) => {
   `;
   cardSection.append(ulElement);
   app.compareCards(newCard);
-  //  console.log(newCard[0].image);
   };
 
+  // function to compare the values of the cards returned
   app.compareCards = (newCard) => {
     const cardValueArray = newCard.map((card) => {
-    let cardValue = parseInt(card.value);
+    let cardValue ; // if we are parsing before the 
     if (card.value === "KING"){
       cardValue = 13;
     }else if(card.value === "QUEEN"){
@@ -85,12 +85,13 @@ app.displayCards = (jsonResponse) => {
       cardValue = 11;
     }else if(card.value === "ACE"){
       cardValue = 1;
-    }else{cardValue = card.value}
+    }else{cardValue = parseInt(card.value)}
+    console.log(cardValue);
     return cardValue;
   });
   
-  let playerCardValue = cardValueArray[0];
-  let dealerCardValue = cardValueArray[1];
+  let dealerCardValue = cardValueArray[0];
+  let playerCardValue = cardValueArray[1];
 
   const message = document.querySelector('h2');
 

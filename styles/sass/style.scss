@@ -35,7 +35,7 @@ img {
   display: flex;
   justify-content: space-around;
   height: 50vh;
- flex:1 0 auto;
+  flex: 0 1 auto;
 }
 
 .startingPoint {
@@ -63,6 +63,7 @@ img {
   background-color:#006400;
   width: 100%;
   height: 100%;
+  cursor: pointer;
 }
 
 .displayCards {
