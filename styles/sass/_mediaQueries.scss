@@ -1,12 +1,40 @@
 @media (max-width: 760px) {
+  header h1 {
+    font-size: 3rem;
+  }
+  
   .deckContainer {
     flex-direction: column;
-  }
-  
-  .drawCards {
-    order: -1;
+    flex-shrink: 0;
+    gap: 1rem;
+    width: 50%;
+    margin-top: 1rem;
+
+      .deck {
+        display: flex;
+        
+          p {
+            padding-right: 10px;
+          }
+      }
   }
 
   
+  .displayCards{
+    left: 0; 
+  }
 
+  .displayCards ul{
+    flex-direction: column;
+    gap: 1rem;
+    margin-right: 6.25rem;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .displayCards ul {
+    margin-bottom: 50px;
+    margin-right: 50px;
+  }
 }

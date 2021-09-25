@@ -49,9 +49,9 @@ app.getDeck = () => {
 
 // function to listen for clicks on deck button
 app.drawCard = () => {
-  const drawButton = document.querySelector('.drawCards');
+  const drawButton = document.querySelector('.cardPull');
   drawButton.addEventListener('click', () => {
-  app.getDeck();
+    app.getDeck();
   });
 }
      
@@ -108,10 +108,16 @@ app.displayCards = (jsonResponse) => {
   // display card decks on page
 app.startGame = () => {
   const startGameButton = document.querySelector('.startButton');
-  startGameButton.addEventListener('click',()=>{
+  startGameButton.addEventListener('click', () => {
     const deckContainer = document.querySelector('.startingPoint');
     deckContainer.classList.remove('startingPoint');
     deckContainer.classList.add('deckContainer');
+
+    const drawCard = document.querySelector('.drawCardStart');
+    drawCard.classList.remove('drawCardStart');
+    drawCard.classList.add('drawCards');
+    
+
     startGameButton.style.display = "none";
   });
   app.drawCard();
