@@ -15,7 +15,7 @@
 // Stretch Goals:
 // make a full war game 
     //Created the winners pile and move winner’s cards to that pile. 
-    // Terminate game when card run out.
+    // Terminate game when cards run out.
     // Resolve ties. 
   // Add animations to the cards slide.
 
@@ -25,12 +25,9 @@ const app = {};
 
 app.apiUrl = `https://deckofcardsapi.com/api/deck/new`;
 
-// ?count=2`;
-
 
 app.init = () => {
   app.startGame();
-  
 }
 
 // method to make fetch request to api
@@ -76,17 +73,18 @@ app.displayCards = (jsonResponse) => {
   // function to compare the values of the cards returned
   app.compareCards = (newCard) => {
     const cardValueArray = newCard.map((card) => {
-    let cardValue ; // if we are parsing before the 
-    if (card.value === "KING"){
+    let cardValue;
+    if (card.value === "KING") {
       cardValue = 13;
-    }else if(card.value === "QUEEN"){
+    } else if (card.value === "QUEEN") {
       cardValue = 12;
-    }else if(card.value === "JACK"){
+    } else if (card.value === "JACK") {
       cardValue = 11;
-    }else if(card.value === "ACE"){
+    } else if (card.value === "ACE") {
       cardValue = 1;
-    }else{cardValue = parseInt(card.value)}
-    console.log(cardValue);
+    } else {
+      cardValue = parseInt(card.value)
+    }
     return cardValue;
   });
   
@@ -95,7 +93,7 @@ app.displayCards = (jsonResponse) => {
 
   const message = document.querySelector('h2');
 
-  if(playerCardValue > dealerCardValue) {
+  if (playerCardValue > dealerCardValue) {
     message.textContent = "You win!"
   } else if (playerCardValue < dealerCardValue) {
     message.textContent = "Dealer wins!"
@@ -117,7 +115,6 @@ app.startGame = () => {
     drawCard.classList.remove('drawCardStart');
     drawCard.classList.add('drawCards');
     
-
     startGameButton.style.display = "none";
   });
   app.drawCard();

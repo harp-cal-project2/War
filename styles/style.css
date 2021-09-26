@@ -276,8 +276,7 @@ html {
 }
 @media (max-width: 480px) {
   .displayCards ul {
-    margin-bottom: 50px;
-    margin-right: 50px;
+    margin: 0 50px 50px 0;
   }
 }
 html {
@@ -290,7 +289,6 @@ body {
   height: 90vh;
   text-align: center;
   font-family: "Roboto", sans-serif;
-  font-size: 125%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -314,7 +312,6 @@ main {
 }
 
 h1 {
-  font-family: "Roboto", sans-serif;
   font-size: 5rem;
   font-weight: bold;
 }
